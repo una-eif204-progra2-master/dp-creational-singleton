@@ -8,7 +8,8 @@
 using namespace std;
 
 int main() {
-    cout << "Welcome to the UNA! (VIRTUAL)\n" << std::endl;
+    cout << "Welcome to the UNA! (VIRTUAL)" << endl;
+    cout << "Creation pattern - Singleton" << endl << endl;
 
     try {
         double price1 = SingletonDatabase::getInstance().getPrice("PS5 Game: Call of Duty");
