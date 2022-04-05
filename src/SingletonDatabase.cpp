@@ -27,9 +27,9 @@ SingletonDatabase::SingletonDatabase() {
     myReadFile.close();
 }
 
-SingletonDatabase &SingletonDatabase::get() {
-    static SingletonDatabase dataBase;
-    return dataBase;
+SingletonDatabase &SingletonDatabase::getInstance() {
+    static SingletonDatabase singletonDatabase;
+    return singletonDatabase;
 }
 
 double SingletonDatabase::getPrice(const string &name) {

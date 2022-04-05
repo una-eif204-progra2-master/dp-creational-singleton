@@ -11,11 +11,14 @@ int main() {
     cout << "Welcome to the UNA! (VIRTUAL)\n" << std::endl;
 
     try {
-        double price1 = SingletonDatabase::get().getPrice("PS5 Game: Call of Duty");
-        cout << "First Request: " << price1 << endl;
+        double price1 = SingletonDatabase::getInstance().getPrice("PS5 Game: Call of Duty");
+        cout << "First Request [New Instance] [PS5 Game: Call of Duty]   Price : " << price1 << endl;
 
-        double price2 = SingletonDatabase::get().getPrice("PS5 Game: Fifa");
-        cout << "First Request: " << price2 << endl;
+        double price2 = SingletonDatabase::getInstance().getPrice("PS5 Game: Fifa");
+        cout << "Second Request [Same Instance] [PS5 Game: Fifa]         Price : " << price2 << endl;
+
+        double price3 = SingletonDatabase::getInstance().getPrice("PS4 Game: Uncharted");
+        cout << "Third Request [Same Instance] [PS4 Game: Uncharted]     Price : " << price3 << endl;
 
     } catch (exception& ex) {
         cerr << ex.what() << '\n' << std::endl;
