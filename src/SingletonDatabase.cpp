@@ -5,6 +5,8 @@
 #include "SingletonDatabase.h"
 
 SingletonDatabase::SingletonDatabase() {
+    clog << "constructed" << endl;
+
     // Create a text string, which is used to output the text file
     string productName;
     string sPrice;
@@ -20,7 +22,7 @@ SingletonDatabase::SingletonDatabase() {
     // Use a while loop together with the getline() function to readByLine the file line by line
     while (getline (myReadFile, productName)) {
         getline(myReadFile, sPrice);
-        products[productName] = stod(sPrice);
+        products[productName] = stod(sPrice); // Convert double from string
     }
 
     // Close the file
@@ -33,5 +35,10 @@ SingletonDatabase &SingletonDatabase::getInstance() {
 }
 
 double SingletonDatabase::getPrice(const string &name) {
+    clog << "in use" << endl;
     return products[name];
+}
+
+SingletonDatabase::~SingletonDatabase() {
+    clog << "destructed" << endl;
 }

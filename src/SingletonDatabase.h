@@ -17,6 +17,8 @@ using namespace std;
 class SingletonDatabase {
 private:
     map<string, double> products;
+
+protected:
     /**
      * The Singleton's constructor should always be private to prevent direct
      * construction calls with the `new` operator.
@@ -32,6 +34,9 @@ public:
      * Singletons should not be assignable.
      */
     SingletonDatabase &operator=(SingletonDatabase const &) = delete;
+
+    virtual ~SingletonDatabase();
+
     /**
      * This is the static method that controls the access to the singleton
      * instance. On the first run, it creates a singleton object and places it
